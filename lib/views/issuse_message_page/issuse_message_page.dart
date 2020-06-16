@@ -126,17 +126,17 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
   }
 
   Widget _descriptionEditor() {
-    final theme = new ZefyrThemeData(
-      toolbarTheme: ZefyrToolbarTheme.fallback(context).copyWith(
-        color: Colors.grey.shade800,
-        toggleColor: Colors.grey.shade900,
-        iconColor: Colors.white,
-        disabledIconColor: Colors.grey.shade500,
-      ),
-    );
+    // final theme = new ZefyrThemeData(
+    //   toolbarTheme: ZefyrToolbarTheme.fallback(context).copyWith(
+    //     color: Colors.grey.shade800,
+    //     toggleColor: Colors.grey.shade900,
+    //     iconColor: Colors.white,
+    //     disabledIconColor: Colors.grey.shade500,
+    //   ),
+    // );
 
     return ZefyrTheme(
-      data: theme,
+      //data: theme,
       child: ZefyrField(
         height: 400.0,
         decoration: InputDecoration(labelText: 'Description'),

@@ -29,9 +29,13 @@ dependencies:
   share: ^0.6.1+1
   flutter_spinkit: "^3.1.0"
   fluttertoast: ^3.1.0
-  dio: ^2.0.15
-  flutter_webview_plugin: ^0.3.5
+ 
+  #network io
+  dio: 3.0.9
+  dio_cookie_manager: ^1.0.0
   cookie_jar: ^1.0.0
+  flutter_webview_plugin: ^0.3.5
+  
   # 日期格式化
   intl: 0.15.7
   city_pickers: ^0.0.1
@@ -51,8 +55,14 @@ dependencies:
   open_file: ^2.0.1+2
   package_info: ^0.4.0+3
   flutter_jpush: ^0.0.4
-  zefyr: ^0.8.0
+  #zefyr: 0.10.0
   pull_to_refresh: ^1.5.6
+
+  zefyr:
+    git:
+      url:  git@github.com:ethan-jiang-1/zefyr.git
+      path: packages/zefyr/
+      ref: 0.0.1 
 
 
 dev_dependencies:
