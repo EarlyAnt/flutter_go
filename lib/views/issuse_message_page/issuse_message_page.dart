@@ -1,9 +1,9 @@
 /// import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:zefyr/zefyr.dart';
+//import 'package:zefyr/zefyr.dart';
 import 'package:flutter_go/utils/data_utils.dart';
-import 'package:notus/convert.dart';
+//import 'package:notus/convert.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class IssuesMessagePage extends StatefulWidget {
@@ -13,7 +13,7 @@ class IssuesMessagePage extends StatefulWidget {
 
 class _IssuesMessagePageState extends State<IssuesMessagePage> {
   final TextEditingController _controller = new TextEditingController();
-  final ZefyrController _zefyrController = new ZefyrController(NotusDocument());
+  //final ZefyrController _zefyrController = new ZefyrController(NotusDocument());
   final FocusNode _focusNode = new FocusNode();
   String _title = "";
   var _delta;
@@ -27,18 +27,18 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
       });
     });
 
-    _zefyrController.document.changes.listen((change) {
-      setState(() {
-        _delta = _zefyrController.document.toDelta();
-      });
-    });
+    //_zefyrController.document.changes.listen((change) {
+    //  setState(() {
+    //    _delta = _zefyrController.document.toDelta();
+    //  });
+    //});
 
     super.initState();
   }
 
   void dispose() {
     _controller.dispose();
-    _zefyrController.dispose();
+    //_zefyrController.dispose();
     super.dispose();
   }
 
@@ -104,7 +104,8 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
           ],
           elevation: 1.0,
         ),
-        body: ZefyrScaffold(
+        body: //ZefyrScaffold(
+          Center(
           child: Padding(
             padding: EdgeInsets.all(8),
             child: ListView(
@@ -118,13 +119,13 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
                   ),
                 ),
                 Text('内容：'),
-                _descriptionEditor(),
+                //_descriptionEditor(),
               ],
             ),
           ),
         ));
   }
-
+/*
   Widget _descriptionEditor() {
     final theme = new ZefyrThemeData(
       toolbarTheme: ZefyrToolbarTheme.fallback(context).copyWith(
@@ -147,4 +148,5 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
       ),
     );
   }
+*/
 }

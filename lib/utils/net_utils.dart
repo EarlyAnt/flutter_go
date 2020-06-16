@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:dio/dio.dart';
+//import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
 Map<String, dynamic> optHeader = {
@@ -9,7 +9,7 @@ Map<String, dynamic> optHeader = {
   'content-type': 'application/json'
 };
 
-var dio = new Dio(BaseOptions(connectTimeout: 30000, headers: optHeader));
+//var dio = new Dio(BaseOptions(connectTimeout: 30000, headers: optHeader));
 
 class NetUtils {
   static Future get(String url, [Map<String, dynamic> params]) async {
@@ -23,7 +23,7 @@ class NetUtils {
     //   };
     // };
 
-    Directory documentsDir = await getApplicationDocumentsDirectory();
+/*     Directory documentsDir = await getApplicationDocumentsDirectory();
     String documentsPath = documentsDir.path;
     var dir = new Directory("$documentsPath/cookies");
     await dir.create();
@@ -33,7 +33,8 @@ class NetUtils {
     } else {
       response = await dio.get(url);
     }
-    return response.data;
+    return response.data; */
+    return '';
   }
 
   static Future post(String url, Map<String, dynamic> params) async {
@@ -44,12 +45,14 @@ class NetUtils {
     //     return "PROXY 30.10.24.79:8889";
     //   };
     // };
-    Directory documentsDir = await getApplicationDocumentsDirectory();
-    String documentsPath = documentsDir.path;
-    var dir = new Directory("$documentsPath/cookies");
-    await dir.create();
-    dio.interceptors.add(CookieManager(PersistCookieJar(dir: dir.path)));
-    var response = await dio.post(url, data: params);
-    return response.data;
+    //Directory documentsDir = await getApplicationDocumentsDirectory();
+    // String documentsPath = documentsDir.path;
+    // var dir = new Directory("$documentsPath/cookies");
+    // await dir.create();
+    // dio.interceptors.add(CookieManager(PersistCookieJar(dir: dir.path)));
+    // var response = await dio.post(url, data: params);
+    // return response.data;
+  //}
+    return await "";
   }
 }

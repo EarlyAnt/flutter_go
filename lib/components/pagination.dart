@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 import './home_banner.dart';
 import '../model/story.dart';
@@ -56,11 +56,11 @@ class Pagination extends StatelessWidget {
   ];
 
   void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
+    //if (await canLaunch(url)) {
+    //  await launch(url);
+    //} else {
       throw 'Could not launch $url';
-    }
+    //}
   }
 
   List<Widget> _pageSelector(BuildContext context) {
