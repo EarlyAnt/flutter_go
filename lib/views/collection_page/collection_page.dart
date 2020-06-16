@@ -80,8 +80,8 @@ class _CollectionPageState extends State<CollectionPage> {
         ),
       );
     }
-    if (_collectionList[index - 1].router.contains('http')) {
-      if (_collectionList[index - 1].name.endsWith('Doc')) {
+    if (_collectionList[(index as int) - 1].router.contains('http')) {
+      if (_collectionList[(index as int) - 1].name.endsWith('Doc')) {
         _icons = Icons.library_books;
       } else {
         _icons = Icons.language;
@@ -105,12 +105,12 @@ class _CollectionPageState extends State<CollectionPage> {
       ),
       child: ListTile(
         leading: Icon(
-          _icons,
+          _icons as IconData,
           size: 30.0,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context as BuildContext).primaryColor,
         ),
         title: Text(
-          _collectionList[index - 1].name,
+          _collectionList[(index as int) - 1].name,
 //          Uri.decodeComponent(_collectionList[index - 1].name),
           overflow: TextOverflow.ellipsis,
           style: TextStyle(fontSize: 17.0),
@@ -118,17 +118,17 @@ class _CollectionPageState extends State<CollectionPage> {
         trailing:
             Icon(Icons.keyboard_arrow_right, color: Colors.grey, size: 30.0),
         onTap: () {
-          if (_collectionList[index - 1].router.contains('http')) {
+          if (_collectionList[(index as int) - 1].router.contains('http')) {
             // 注意这里title已经转义过了
             Application.router.navigateTo(
-              context,
-              '${Routes.webViewPage}?title=${_collectionList[index - 1].name}&url=${Uri.encodeComponent(_collectionList[index - 1].router)}',
+              context as BuildContext,
+              '${Routes.webViewPage}?title=${_collectionList[(index as int) - 1].name}&url=${Uri.encodeComponent(_collectionList[(index as int) - 1].router)}',
               transition: TransitionType.nativeModal,
             );
           } else {
             Application.router.navigateTo(
-              context,
-              "${_collectionList[index - 1].router}",
+              context as BuildContext,
+              "${_collectionList[(index as int) - 1].router}",
               transition: TransitionType.nativeModal,
             );
           }

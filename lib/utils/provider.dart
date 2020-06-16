@@ -36,7 +36,7 @@ class Provider {
         .rawQuery('SELECT name FROM sqlite_master WHERE type = "table"');
     List<String> targetList = [];
     tables.forEach((item) {
-      targetList.add(item['name']);
+      targetList.add(item['name'] as String);
     });
     return targetList;
   }
@@ -45,7 +45,7 @@ class Provider {
   Future checkTableIsRight() async {
     List<String> expectTables = ['cat', 'widget', 'collection'];
 
-    List<String> tables = await getTables();
+    List<String> tables = await getTables() as List<String>;
 
     for (int i = 0; i < expectTables.length; i++) {
       if (!tables.contains(expectTables[i])) {
@@ -67,7 +67,7 @@ class Provider {
     } catch (e) {
       print("Error $e");
     }
-    bool tableIsRight = await this.checkTableIsRight();
+    bool tableIsRight = await this.checkTableIsRight() as bool;
 
     if (!tableIsRight) {
       // 关闭上面打开的db，否则无法执行open

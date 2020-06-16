@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+
 import 'package:mustache/mustache.dart';
 import 'package:path/path.dart' as p;
 import '../../utils/util.dart';
@@ -46,7 +47,7 @@ Future<List> buildPageListJson() async {
     String target = '$dicPath/.page.json';
     String jsonString = await readeFile(target);
     try  {
-      Map<String, dynamic> item = json.decode(jsonString);
+      Map<String, dynamic> item = json.decode(jsonString) as Map<String, dynamic>;
       detailList.add(item);
     } catch (err) {
       print("err $err");
@@ -92,7 +93,7 @@ class StandardPages {
 }
 	  
 	''';
-  var template = new Template(source, name: 'template-filename.html');
+  var template = Template(source, name: 'template-filename.html');
 
 
   // 自定义前缀 避免出现数字非法字符等
@@ -107,7 +108,7 @@ return output;
   
 }
 Future<bool> checkPage(String path) async {
-  List files = [
+  List<String> files = [
     'index.dart',
     'index.md',
     '.page.json'

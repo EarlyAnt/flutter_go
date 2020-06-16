@@ -64,7 +64,7 @@ class WidgetItem extends StatelessWidget {
         title.substring(0, 1).toUpperCase());
     Icon widgetIcon;
     if (WidgetName2Icon.icons[_widgetName] != null) {
-      widgetIcon = Icon(WidgetName2Icon.icons[_widgetName]);
+      widgetIcon = Icon(WidgetName2Icon.icons[_widgetName] as IconData);
     } else {
       widgetIcon = Icon(
         Icons.crop,

@@ -29,11 +29,11 @@ Future<List> buildDemoListJson() async {
     String target = '$dicPath/.demo.json';
     String jsonString = await readeFile(target);
     try  {
-      Map<String, dynamic> item = json.decode(jsonString);
+      Map<String, dynamic> item = json.decode(jsonString) as Map<String, dynamic>;
       detailList.add(item);
     } catch (err) {
       print("err $err");
-      throw new Exception('$dicPath');
+      throw Exception('$dicPath');
     }
   }
   print("本次编译: 获取${detailList.length}条demo数据");
@@ -71,7 +71,7 @@ String renderDemosDart(List<Map<String, dynamic>> data) {
   return head + foot;
 }
 Future<bool> checkDemo(String path) async {
-  List files = [
+  List<String> files = [
     'index.dart',
     '.demo.json',
     'src/'

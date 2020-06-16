@@ -118,7 +118,7 @@ class DropdownButtonCustom extends StatelessWidget {
       value: selectItemValue,
       //下拉菜单item点击之后的回调
       onChanged: (T) {
-        if (parent.mounted) {
+        if (parent.mounted  as bool) {
           parent.setState(() {
             selectItemValue = T;
           });

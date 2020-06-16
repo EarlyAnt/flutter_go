@@ -24,7 +24,7 @@ class _CupertinoColorsFullDefault extends State {
         width: MediaQuery.of(context).size.width - 100,
         padding: const EdgeInsets.all(10.0),
         child: Text(colorName, style: TextStyle(color: Colors.white)),
-        decoration: BoxDecoration(color: cupertinoColors));
+        decoration: BoxDecoration(color: cupertinoColors as Color));
   }
 
   @override

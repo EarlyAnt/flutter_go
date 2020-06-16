@@ -1,3 +1,7 @@
+import 'package:flutter_go/blocs/industry_bloc.dart';
+
+import 'industry_main.dart';
+
 ///
 /// Created with Android Studio.
 /// User: 一晟
@@ -13,14 +17,15 @@ class Suggestion {
   Suggestion({this.query, this.suggestions, this.code});
 
   Suggestion.fromJson(Map<String, dynamic> json) {
-    query = json['query'];
+    query = json['query'] as String;
     if (json['suggestions'] != null) {
-      suggestions = new List<Suggestions>();
+      suggestions = List<Suggestions>();
       json['suggestions'].forEach((v) {
-        suggestions.add(new Suggestions.fromJson(v));
+        Suggestions suggestion = Suggestions.fromJson(v as Map<String, dynamic>);
+        suggestions.add(suggestion);
       });
     }
-    code = json['code'];
+    code = json['code'] as int;
   }
 
   Map<String, dynamic> toJson() {
@@ -41,12 +46,12 @@ class Suggestions {
   Suggestions({this.data, this.value});
 
   Suggestions.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
-    value = json['value'];
+    data = json['data'] != null ? Data.fromJson(json['data'] as Map<String, dynamic>) : null;
+    value = json['value'] as String;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data.toJson();
     }
@@ -61,7 +66,7 @@ class Data {
   Data({this.category});
 
   Data.fromJson(Map<String, dynamic> json) {
-    category = json['category'];
+    category = json['category'] as String;
   }
 
   Map<String, dynamic> toJson() {

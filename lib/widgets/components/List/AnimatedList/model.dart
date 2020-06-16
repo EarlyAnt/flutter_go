@@ -32,7 +32,7 @@ class ListModel<E> {
     if (removedItem != null) {
       _animatedList.removeItem(index,
           (BuildContext context, Animation<double> animation) {
-        return removedItemBuilder(removedItem, context, animation);
+        return removedItemBuilder(removedItem, context, animation) as Widget;
       });
     }
     return removedItem;

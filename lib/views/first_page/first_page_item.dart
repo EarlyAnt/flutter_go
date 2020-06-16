@@ -31,19 +31,19 @@ class FirstPageItem {
 
   factory FirstPageItem.fromJson(Map<String, dynamic> json) {
     String _tag = '';
-    if (json['tags'].length > 0) {
+    if ((json['tags'] as Map<String, dynamic>).length > 0) {
       _tag = '${json['tags'][0]['title']}/';
     }
     return FirstPageItem(
-      hot: json['hot'],
-      collectionCount: json['collectionCount'],
-      commentCount: json['commentsCount'],
+      hot: json['hot'] as bool,
+      collectionCount: json['collectionCount'] as int,
+      commentCount: json['commentsCount'] as int,
       tag: '$_tag${json['category']['name']}',
-      username: json['user']['username'],
-      createdTime: Util.getTimeDuration(json['createdAt']),
-      title: json['title'],
-      detailUrl: json['originalUrl'],
-      isCollection: json['type'],
+      username: json['user']['username'] as String,
+      createdTime: Util.getTimeDuration(json['createdAt'] as String),
+      title: json['title'] as String,
+      detailUrl: json['originalUrl'] as String,
+      isCollection: json['type'] as String,
     );
   }
 }

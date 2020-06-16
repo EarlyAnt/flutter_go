@@ -23,7 +23,7 @@ class _PainterSketchDomeState extends State<PainterSketchDome> {
   Color nowColor = Colors.redAccent;
 
   void moveGestureDetector(DragUpdateDetails detail) {
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     final Offset xy = box.globalToLocal(detail.globalPosition); // 重要需要转换以下坐标位置
     Offset p = Offset(xy.dx, xy.dy - 60);
     //Offset p = Offset(detail.globalPosition.dx, detail.globalPosition.dy - 60);
@@ -40,7 +40,7 @@ class _PainterSketchDomeState extends State<PainterSketchDome> {
       lines.add(l);
       nowPoints.clear();
     }
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     final Offset xy = box.globalToLocal(detail.globalPosition); // 重要需要转换以下坐标位置
     Offset p = Offset(xy.dx, xy.dy - 60);
     //Offset p = Offset(detail.globalPosition.dx, detail.globalPosition.dy - 60);

@@ -19,7 +19,7 @@ class Sql extends BaseModel {
 
   // sdf
   Future<List> get() async {
-    return await this.query(tableName);
+    return await this.query(tableName) as Future<List>;
   }
 
   String getTableName() {
@@ -60,7 +60,7 @@ class Sql extends BaseModel {
       index++;
     });
     // print("this is string condition for sql > $stringConditions");
-    return await this.query(tableName, where: stringConditions);
+    return await this.query(tableName, where: stringConditions) as Future<List<dynamic>>;
   }
 
   Future<Map<String, dynamic>> insert(Map<String, dynamic> json) async {
@@ -100,6 +100,6 @@ class Sql extends BaseModel {
       index++;
     });
 
-    return await this.query(tableName, where: stringConditions);
+    return await this.query(tableName, where: stringConditions) as Future<List<dynamic>>;
   }
 }

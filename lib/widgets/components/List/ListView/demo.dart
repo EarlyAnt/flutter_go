@@ -37,7 +37,7 @@ class ListViewLessDefault extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    switch (index) {
+    switch (index as int) {
       case 0:
         return ListView(
           shrinkWrap: true,

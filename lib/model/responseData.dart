@@ -6,9 +6,9 @@ class ResponseData {
   ResponseData(this.status, this.success, this.message);
 
   ResponseData.fromJson(Map<String, dynamic> json)
-      : status = json['status'],
-        success = json['success'],
-        message = json['message'];
+      : status = json['status'] as int,
+        success = json['success'] as bool,
+        message = json['message'] as String;
 
   Map<String, dynamic> toJson() =>
       {'status': status, 'success': success, 'messsage': message};

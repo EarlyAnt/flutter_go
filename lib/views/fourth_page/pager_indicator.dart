@@ -41,7 +41,7 @@ class PagerIndicator extends StatelessWidget {
             page.iconAssetPath,
             page.color,
             isHollow,
-            percentActive,
+            percentActive as double,
           ),
         ),
       );

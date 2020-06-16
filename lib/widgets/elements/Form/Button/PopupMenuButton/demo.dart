@@ -90,7 +90,7 @@ class PopupMenuButtonCustom extends StatelessWidget {
   const PopupMenuButtonCustom([this.widget, this.parent]) : super();
   @override
   Widget build(BuildContext context) {
-    final String selectStr = widget.options['defaultSelect'];
+    final String selectStr = widget.options['defaultSelect'] as String;
     return PopupMenuButton(
         //如果提供，则用于此按钮的widget。
         child: RaisedButton.icon(

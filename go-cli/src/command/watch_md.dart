@@ -72,8 +72,8 @@ void watch() {
 }
 bool isIgnore (List<String> ignorePath, parentPath, currentPath) {
   for (String ignore in ignorePath) {
-    String path = p.absolute(parentPath, ignore);
-    if (currentPath.contains(path)) {
+    String path = p.absolute(parentPath as String, ignore);
+    if (currentPath.contains(path) != null) {
 //      print("修改的文件, 是忽略列表中的文件, 跳过编译!");
       return true;
     }

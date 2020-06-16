@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../model/widget.dart';
 import '../routers/application.dart';
 
 /// import '../model/cat.dart';
@@ -33,12 +34,13 @@ class _CategoryHome extends State<CategoryHome> {
     // 初始化加入顶级的name
     print("这是新界面的id:>>> ${widget.token}");
 
-    CommonItem targetGroup = Application.widgetTree.find(widget.token) ?? [];
+    Object targetGroup = Application.widgetTree.find(widget.token) ?? [];
     print("targetGroup::: $targetGroup");
 
-    catHistory.add(targetGroup);
+    CommonItem<dynamic> tg = targetGroup as CommonItem;
+    catHistory.add(tg);
     this.setState(() {
-      items = targetGroup.children;
+      items = tg.children;
     });
     searchCatOrWidget();
   }

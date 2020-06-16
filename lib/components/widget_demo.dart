@@ -52,14 +52,14 @@ class _WidgetDemoState extends State<WidgetDemo> {
     ];
     widget.contentList.forEach((item) {
       if (item.runtimeType == String) {
-        _list.add(MarkdownBody(item));
+        _list.add(MarkdownBody(item as String));
         _list.add(
           SizedBox(
             height: 20.0,
           ),
         );
       } else {
-        _list.add(item);
+        _list.add(item as Widget);
       }
     });
     return _list;
@@ -100,7 +100,7 @@ class _WidgetDemoState extends State<WidgetDemo> {
     if (_hasCollected) {
       // 删除操作
       DataUtils.removeCollected(params, context).then((result) {
-        if (result) {
+        if (result != null) {
           _scaffoldKey.currentState
               .showSnackBar(SnackBar(content: Text('已取消收藏')));
           if (ApplicationEvent.event != null) {
@@ -117,7 +117,7 @@ class _WidgetDemoState extends State<WidgetDemo> {
     } else {
       // 插入操作
       DataUtils.addCollected(params, context).then((result) {
-        if (result) {
+        if (result != null) {
           if (this.mounted) {
             setState(() {
               _hasCollected = true;
@@ -199,7 +199,7 @@ class _WidgetDemoState extends State<WidgetDemo> {
       new IconButton(
         tooltip: 'collection',
         onPressed: _getCollection,
-        icon: Icon(_collectionIcons),
+        icon: Icon(_collectionIcons as IconData),
       ),
     ];
     if (menus.length > 0) {

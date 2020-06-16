@@ -43,7 +43,7 @@ class _IndustryState extends State<IndustryPage> {
         );
       } else {
         if (widget.itemTitle is Function) {
-          return widget.itemTitle(state);
+          return widget.itemTitle(state) as Widget;
         }
       }
     }

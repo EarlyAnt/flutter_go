@@ -12,7 +12,7 @@ class _Demo extends State<CupertinoSegmentedControlDemo> {
     return CupertinoSegmentedControl(
       onValueChanged: (v) {
         this.setState(() {
-          value = v;
+          value = v as String;
         });
       },
       pressedColor: Color(0xff7c1c25),

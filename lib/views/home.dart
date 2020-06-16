@@ -72,13 +72,13 @@ class _MyHomePageState extends State<AppPage>
         //..add(FirstPage())
         ..add(MainPage(userInfo: widget.userInfo));
     }
-    appBarTitle = tabData[0]['text'];
+    appBarTitle = tabData[0]['text'] as String;
 
     for (int i = 0; i < tabData.length; i++) {
       _myTabs.add(BottomNavigationBarItem(
-        icon: tabData[i]['icon'],
+        icon: tabData[i]['icon'] as Widget,
         title: Text(
-          tabData[i]['text'],
+          tabData[i]['text'] as String,
         ),
       ));
     }
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<AppPage>
 
   initSearchHistory() async {
     sp = await SpUtil.getInstance();
-    String json = sp.getString(SharedPreferencesKeys.searchHistory);
+    String json = sp.getString(SharedPreferencesKeys.searchHistory) as String;
     print("json $json");
     searchHistoryList = SearchHistoryList.fromJSON(json);
   }
@@ -115,11 +115,11 @@ class _MyHomePageState extends State<AppPage>
       if (value != '') {
         print('value ::: $value');
         // List<WidgetPoint> list = await widgetControl.search(value);
-        List<WidgetPoint> list = await DataUtils.searchWidget(value);
+        List<WidgetPoint> list = (await DataUtils.searchWidget(value as String)) as List<WidgetPoint>;
         return list
             .map((item) => new MaterialSearchResult<String>(
                   value: item.name,
-                  icon: WidgetName2Icon.icons[item.name] ?? null,
+                  icon: WidgetName2Icon.icons[item.name] as IconData ?? null,
                   text: 'widget',
                   onTap: () {
                     onWidgetTap(item, context);
@@ -143,7 +143,7 @@ class _MyHomePageState extends State<AppPage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: renderAppBar(context, widget, _currentIndex),
+      appBar: renderAppBar(context, widget, _currentIndex) as PreferredSizeWidget,
       body: IndexedStack(
         index: _currentIndex,
         children: _list,
@@ -166,7 +166,7 @@ class _MyHomePageState extends State<AppPage>
   void _itemTapped(int index) {
     setState(() {
       _currentIndex = index;
-      appBarTitle = tabData[index]['text'];
+      appBarTitle = tabData[index]['text'] as String;
     });
   }
 }

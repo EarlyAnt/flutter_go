@@ -15,7 +15,7 @@ class _Demo extends State<RadioADemo> {
   int groupValue = 1;
   onChange(val) {
     this.setState(() {
-      groupValue = val;
+      groupValue = val as int;
     });
   }
 

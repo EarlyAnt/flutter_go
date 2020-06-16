@@ -286,7 +286,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     }
 
     if (_linkHandlers.isNotEmpty) {
-      TapGestureRecognizer recognizer = _linkHandlers.last;
+      TapGestureRecognizer recognizer = _linkHandlers.last as TapGestureRecognizer;
       return new GestureDetector(child: child, onTap: recognizer.onTap);
     } else {
       return child;
@@ -356,11 +356,11 @@ class MarkdownBuilder implements md.NodeVisitor {
       if (mergedTexts.isNotEmpty &&
           mergedTexts.last is RichText &&
           child is RichText) {
-        RichText previous = mergedTexts.removeLast();
+        RichText previous = mergedTexts.removeLast() as RichText;
         List<TextSpan> children = previous.text.children != null
             ? new List.from(previous.text.children)
-            : [previous.text];
-        children.add(child.text);
+            : [previous.text as TextSpan];
+        children.add(child.text as TextSpan);
         TextSpan mergedSpan = new TextSpan(children: children);
         mergedTexts.add(new RichText(
           textScaleFactor: styleSheet.textScaleFactor,

@@ -50,7 +50,7 @@ class Util {
   }
 
   static double setPercentage(percentage, context) {
-    return MediaQuery.of(context).size.width * percentage;
+    return MediaQuery.of(context as BuildContext).size.width * (percentage as num);
   }
 
   static Color getLangColor(String language) {

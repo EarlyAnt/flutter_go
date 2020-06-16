@@ -55,7 +55,7 @@ class CheckboxSelect extends StatelessWidget {
         tristate: false,
         value: parent.selectValue == this.index,
         onChanged: (bool bol) {
-          if (parent.mounted) {
+          if (parent.mounted as bool) {
             parent.setState(() {
               parent.selectValue = bol ? this.index : -1;
             });

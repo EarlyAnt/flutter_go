@@ -3,8 +3,8 @@ class Data {
   String name;
 
   Data.fromJson(Map<String, dynamic> json)
-      : version = json['version'],
-        name = json['name'];
+      : version = json['version'] as String,
+        name = json['name'] as String;
 
   @override
   String toString() {
@@ -18,9 +18,9 @@ class Version {
   bool success;
 
   Version.formJson(Map<String, dynamic> json)
-      : status = json['status'],
-        success = json['success'],
-        data = Data.fromJson(json['data']);
+      : status = json['status'] as int,
+        success = json['success'] as bool,
+        data = Data.fromJson(json['data'] as Map<String, dynamic>);
 
   @override
   String toString() {

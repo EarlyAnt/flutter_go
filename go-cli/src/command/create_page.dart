@@ -31,12 +31,12 @@ class PageDetail {
   String desc;
   String id;
   PageDetail.fromJson(Map<dynamic, dynamic> json) {
-    name = json['name'];
-    author = json['author'];
-    title = json['title'];
-    email = json['email'];
-    desc = json['desc'];
-    id = json['id'] ?? generateId();
+    name = json['name'] as String;
+    author = json['author'] as String;
+    title = json['title'] as String;
+    email = json['email'] as String;
+    desc = json['desc'] as String;
+    id = (json['id'] ?? generateId()) as String;
   }
 }
 // 同时，argResults也是ArgResults的实例

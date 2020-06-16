@@ -118,8 +118,8 @@ class _DrawerPageState extends State<DrawerPage> {
     List<Widget> tempWidget = [];
     for (var i = 0; i < defalutThemeColor.length; i++) {
       tempWidget.add(SingleThemeColor(
-        themeColor: defalutThemeColor[i]['value'],
-        coloeName: defalutThemeColor[i]['cnName'],
+        themeColor: defalutThemeColor[i]['value'] as int,
+        coloeName: defalutThemeColor[i]['cnName'] as String,
       ));
     }
     return tempWidget;

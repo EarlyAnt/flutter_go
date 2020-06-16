@@ -16,7 +16,7 @@ class _Demo extends State<CityPickerDemo> {
   String _result;
   show(context) async {
     Result temp = await CityPickers.showCityPicker(
-      context: context,
+      context: context as BuildContext,
       // locationCode: '640221',
       height: 400,
     );

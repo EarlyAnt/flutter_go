@@ -39,7 +39,7 @@ class Page extends StatelessWidget {
     this.percentVisible = 1.0,
   });
   _goHomePage(context) {
-    Navigator.of(context)
+    Navigator.of(context as BuildContext)
         .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
   }
 

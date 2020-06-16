@@ -95,7 +95,7 @@ class _CupertinoAppFullDefault extends State {
           ],
           onGenerateRoute: (setting) {
             // 当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
-            return routerHandler(setting);
+            return routerHandler(setting) as Route<dynamic>;
           },
           onGenerateTitle: (context) {
             // 跟上面的tiitle一样，但含有一个context参数用于做本地化

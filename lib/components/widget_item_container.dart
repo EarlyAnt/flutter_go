@@ -32,7 +32,7 @@ class WidgetItemContainer extends StatelessWidget {
     String targetRouter = '/category/error/404';
     widgetDemosList.forEach((item) {
       if (item.name == targetName) {
-        targetRouter = item.routerName;
+        targetRouter = item.routerName as String;
         targetRouter = targetRouter.toLowerCase();
       }
     });
@@ -73,20 +73,20 @@ class WidgetItemContainer extends StatelessWidget {
                     String type = item.type;
 
                     if (type == "category") {
-                      return tapToGroup(item as CategoryComponent, context);
+                      return tapToGroup(item as CategoryComponent, context as BuildContext);
                     }
                     if (type == "widget") {
                       WidgetLeaf leaf = item as WidgetLeaf;
 
                       if (leaf.display == "standard") {
-                        return tapToStandardPage(leaf, context);
+                        return tapToStandardPage(leaf, context as BuildContext);
                       } else {
-                        return tapToOldWidget(leaf, context);
+                        return tapToOldWidget(leaf, context as BuildContext);
                       }
                     }
 
                     Application.router.navigateTo(
-                        context, "/category/error/404",
+                        context as BuildContext, "/category/error/404",
                         transition: TransitionType.native);
                   },
                   index: addI,

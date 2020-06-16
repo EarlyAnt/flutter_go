@@ -42,7 +42,8 @@ class _FullScreenCodeDialogState extends State<FullScreenCodeDialog> {
   }
 
   getRemotePathCode(path) async {
-    String response = await NetUtils.get(path);
+    String spath = path as String;
+    String response = (await NetUtils.get(spath)) as String;
     if (mounted) {
       setState(() {
         _exampleCode = response ?? 'Example code not found';

@@ -95,7 +95,7 @@ class CircleProgressBarPainter extends CustomPainter {
       center: Offset(size.width / 2, size.height / 2),
       radius: size.width / 2,
     );
-    canvas.drawArc(rect, 0.0, jindu * 3.14 / 180, false, _paintFore);
+    canvas.drawArc(rect, 0.0, (jindu as double) * 3.14 / 180, false, _paintFore);
   }
 
   @override

@@ -29,8 +29,8 @@ class FourthPageState extends State<FourthPage> with TickerProviderStateMixin {
       if (mounted) {
         setState(() {
           if (event.updateType == UpdateType.dragging) {
-            slideDirection = event.direction;
-            slidePercent = event.slidePercent;
+            slideDirection = event.direction as SlideDirection;
+            slidePercent = event.slidePercent as double;
 
             if (slideDirection == SlideDirection.leftToRight) {
               nextPageIndex = activeIndex - 1;
@@ -62,8 +62,8 @@ class FourthPageState extends State<FourthPage> with TickerProviderStateMixin {
 
             animatedPageDragger.run();
           } else if (event.updateType == UpdateType.animating) {
-            slideDirection = event.direction;
-            slidePercent = event.slidePercent;
+            slideDirection = event.direction as SlideDirection;
+            slidePercent = event.slidePercent as double;
           } else if (event.updateType == UpdateType.doneAnimating) {
             if (waitingNextPageIndex != -1) {
               nextPageIndex = waitingNextPageIndex;
@@ -91,20 +91,21 @@ class FourthPageState extends State<FourthPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Stack(
-      children: [
-        new Page(
+      children: <Widget>[
+        //TODO: Ethan Comment out
+        //Page(
           // page 的主要内容
-          viewModel: pages[activeIndex],
-          percentVisible: 1.0,
-        ),
-        new PageReveal(
+        //  viewModel: pages[activeIndex],
+        //  percentVisible: 1.0,
+        //),
+        PageReveal(
           revealPercent: slidePercent,
-          child: new Page(
-            viewModel: pages[nextPageIndex],
-            percentVisible: slidePercent,
-          ),
+          //child: Page(
+          //  viewModel: pages[nextPageIndex],
+          //  percentVisible: slidePercent,
+          //),
         ),
-        new PagerIndicator(
+        PagerIndicator(
           viewModel: new PagerIndicatorViewModel(
             pages,
             activeIndex,
@@ -112,7 +113,7 @@ class FourthPageState extends State<FourthPage> with TickerProviderStateMixin {
             slidePercent,
           ),
         ),
-        new PageDragger(
+        PageDragger(
           canDragLeftToRight: activeIndex > 0,
           canDragRightToLeft: activeIndex < pages.length - 1,
           slideUpdateStream: this.slideUpdateStream,

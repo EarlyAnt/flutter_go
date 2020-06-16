@@ -16,7 +16,7 @@ class _Demo extends State<DemoA> {
 
   onChange(v) {
     this.setState(() {
-      value = v;
+      value = v as String;
     });
   }
 

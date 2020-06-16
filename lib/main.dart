@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/rendering.dart';
+import 'model/user_info.dart';
 import 'routers/routers.dart';
 import 'routers/application.dart' show Application;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -130,7 +131,7 @@ class _MyAppState extends State<MyApp> {
         setState(() {
           _hasLogin = true;
           _isLoading = false;
-          _userInfo = hasLogin;
+          _userInfo = hasLogin as UserInformation;
           // 设置初始化的主题色
           // if (hasLogin.themeColor != 'default') {
           //   themeColor = int.parse(hasLogin.themeColor);
@@ -138,7 +139,7 @@ class _MyAppState extends State<MyApp> {
         });
       } else {
         setState(() {
-          _hasLogin = hasLogin;
+          _hasLogin = hasLogin as bool;
           _isLoading = false;
         });
       }
@@ -191,7 +192,7 @@ class _MyAppState extends State<MyApp> {
           size: 35.0,
         ),
       ),
-      home: new Scaffold(body: showWelcomePage()),
+      home: Scaffold(body: showWelcomePage() as Widget),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,
       navigatorObservers: <NavigatorObserver>[Analytics.observer],
@@ -214,7 +215,7 @@ void main() async {
 
   await DataUtils.getWidgetTreeList().then((List json) {
     List data =
-        WidgetTree.insertDevPagesToList(json, StandardPages().getLocalList());
+        WidgetTree.insertDevPagesToList(json, StandardPages().getLocalList()) as List;
     Application.widgetTree = WidgetTree.buildWidgetTree(data);
     print("Application.widgetTree>>>> ${Application.widgetTree}");
   });

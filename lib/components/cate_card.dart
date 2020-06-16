@@ -77,7 +77,7 @@ class _CateCardState extends State<CateCard> {
                   height: 46.0,
                   width: 46.0,
                   child: Icon(
-                    WidgetName2Icon.icons[widget.category.name],
+                    WidgetName2Icon.icons[widget.category.name] as IconData,
                     color: Colors.white,
                     size: 30.0,
                   ),

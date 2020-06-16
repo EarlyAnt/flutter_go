@@ -45,7 +45,7 @@ class _CollectionFullPageState extends State<CollectionFullPage> {
     DataUtils.getAllCollections(context).then((collectionList) {
       if (this.mounted) {
         setState(() {
-          _collectionList = collectionList;
+          _collectionList = collectionList as List<Collection>;
         });
       }
     });
@@ -76,8 +76,8 @@ class _CollectionFullPageState extends State<CollectionFullPage> {
         ),
       );
     }
-    if (_collectionList[index - 1].router.contains('http')) {
-      if (_collectionList[index - 1].name.endsWith('Doc')) {
+    if (_collectionList[(index as int) - 1].router.contains('http')) {
+      if (_collectionList[(index as int) - 1].name.endsWith('Doc')) {
         _icons = Icons.library_books;
       } else {
         _icons = Icons.language;
@@ -85,7 +85,7 @@ class _CollectionFullPageState extends State<CollectionFullPage> {
     } else {
       _icons = Icons.extension;
     }
-    String targetRouter = _collectionList[index - 1].router;
+    String targetRouter = _collectionList[(index as int) - 1].router;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       margin: const EdgeInsets.only(bottom: 7.0),
@@ -102,19 +102,19 @@ class _CollectionFullPageState extends State<CollectionFullPage> {
       ),
       child: ListTile(
         leading: Icon(
-          _icons,
+          _icons as IconData,
           size: 30.0,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context as BuildContext).primaryColor,
         ),
         title: Text(
-          _collectionList[index - 1].name,
+          _collectionList[(index as int) - 1].name,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(fontSize: 17.0),
         ),
         trailing:
             Icon(Icons.keyboard_arrow_right, color: Colors.grey, size: 30.0),
         onTap: () {
-          Application.router.navigateTo(context, targetRouter.toLowerCase(),
+          Application.router.navigateTo(context as BuildContext , targetRouter.toLowerCase(),
               transition: TransitionType.native);
         },
       ),

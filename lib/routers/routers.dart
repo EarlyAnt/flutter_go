@@ -41,9 +41,9 @@ class Routes {
         print('组件路由params=$params widgetsItem=${demo.routerName}');
         analytics
             .logEvent(name: 'component', parameters: {'name': demo.routerName});
-        return demo.buildRouter(context);
+        return demo.buildRouter(context) as Widget;
       });
-      String path = demo.routerName;
+      String path = demo.routerName as String;
       router.define('${path.toLowerCase()}', handler: handler);
     });
 //    router.define(webViewPage,handler:webViewPageHand);

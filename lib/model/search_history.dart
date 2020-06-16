@@ -27,7 +27,7 @@ class SearchHistoryList {
   static SearchHistoryList _getInstance(SpUtil sp) {
     if (_instance == null) {
       _sp = sp;
-      String json = sp.get(SharedPreferencesKeys.searchHistory);
+      String json = sp.get(SharedPreferencesKeys.searchHistory) as String;
       _instance = new SearchHistoryList.fromJSON(json);
     }
     return _instance;
@@ -51,10 +51,10 @@ class SearchHistoryList {
     if (jsonData == null) {
       return;
     }
-    List jsonList = json.decode(jsonData);
+    List jsonList = json.decode(jsonData) as List;
     jsonList.forEach((value) {
       _searchHistoryList.add(SearchHistory(
-          name: value['name'], targetRouter: value['targetRouter']));
+          name: value['name'] as String, targetRouter: value['targetRouter'] as String));
     });
   }
 
@@ -68,7 +68,7 @@ class SearchHistoryList {
   }
 
   save() {
-    _sp.putString(SharedPreferencesKeys.searchHistory, this.toJson());
+    _sp.putString(SharedPreferencesKeys.searchHistory, this.toJson() as String);
   }
 
   add(SearchHistory item) {
@@ -95,6 +95,6 @@ class SearchHistoryList {
 
   @override
   String toString() {
-    return this.toJson();
+    return this.toJson() as String;
   }
 }

@@ -19,7 +19,7 @@ class Collection implements CollectionInterface {
   Collection({this.name, this.router});
 
   factory Collection.fromJSON(Map json) {
-    return Collection(name: json['name'], router: json['router']);
+    return Collection(name: json['name'] as String, router: json['router'] as String);
   }
 
   Object toMap() {
@@ -50,7 +50,7 @@ class CollectionControlModel {
     List<Collection> resultList = [];
     list.forEach((item) {
       print('collection item =>> $item');
-      resultList.add(Collection.fromJSON(item));
+      resultList.add(Collection.fromJSON(item as Map<dynamic, dynamic>));
     });
     return resultList;
   }

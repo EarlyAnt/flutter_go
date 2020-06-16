@@ -37,16 +37,16 @@ class _PageDraggerState extends State<PageDragger> {
       final newPosition = details.globalPosition;
       final dx = dragStart.dx - newPosition.dx;
 
-      if (dx > 0 && widget.canDragRightToLeft) {
+      if (dx > 0 && widget.canDragRightToLeft as bool) {
         slideDirection = SlideDirection.rightToLeft;
-      } else if (dx < 0 && widget.canDragLeftToRight) {
+      } else if (dx < 0 && widget.canDragLeftToRight as bool) {
         slideDirection = SlideDirection.leftToRight;
       } else {
         slideDirection = SlideDirection.none;
       }
 
       if (slideDirection != SlideDirection.none) {
-        slidePercent = (dx / FULL_TRANSTITION_PX).abs().clamp(0.0, 1.0);
+        slidePercent = (dx / FULL_TRANSTITION_PX).abs().clamp(0.0, 1.0) as double;
       } else {
         slidePercent = 0.0;
       }
@@ -97,20 +97,20 @@ class AnimatedPageDragger {
     if (transitionGoal == TransitionGoal.open) {
       endSlidePercent = 1.0;
 
-      final slideRemaining = 1.0 - slidePercent;
+      final slideRemaining = 1.0 - (slidePercent as double);
 
       duration = new Duration(
           milliseconds: (slideRemaining / PERCENT_PER_MILLISECOND).round());
     } else {
       endSlidePercent = 0.0;
       duration = new Duration(
-          milliseconds: (slidePercent / PERCENT_PER_MILLISECOND).round());
+          milliseconds: ((slidePercent as double) / PERCENT_PER_MILLISECOND).round());
     }
 
     completionAnimationController =
-        new AnimationController(duration: duration, vsync: vsync)
+        new AnimationController(duration: duration as Duration, vsync: vsync)
           ..addListener(() {
-            slidePercent = lerpDouble(startSlidePercent, endSlidePercent,
+            slidePercent = lerpDouble(startSlidePercent as double, endSlidePercent as double,
                 completionAnimationController.value);
 
             slideUpdateStream.add(new SlideUpdate(

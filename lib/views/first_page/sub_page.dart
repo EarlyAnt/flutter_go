@@ -59,8 +59,8 @@ class SubPageState extends State<SubPage> with AutomaticKeepAliveClientMixin {
 
     try {
       var response = await NetUtils.get(juejin_flutter, _param);
-      responseList = response['d']['entrylist'];
-      pageTotal = response['d']['total'];
+      responseList = response['d']['entrylist'] as List;
+      pageTotal = response['d']['total'] as int;
       if (!(pageTotal is int) || pageTotal <= 0) {
         pageTotal = 0;
       }
@@ -69,7 +69,7 @@ class SubPageState extends State<SubPage> with AutomaticKeepAliveClientMixin {
     List resultList = new List();
     for (int i = 0; i < responseList.length; i++) {
       try {
-        FirstPageItem cellData = new FirstPageItem.fromJson(responseList[i]);
+        FirstPageItem cellData = new FirstPageItem.fromJson(responseList[i] as Map<String, dynamic>);
         resultList.add(cellData);
       } catch (e) {
         // No specified type, handles all

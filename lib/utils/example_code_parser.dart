@@ -34,7 +34,7 @@ Future<void> _parseExampleCode(
   try {
     code = await bundle.loadString('lib/widgets/$filePath');
   } catch (err) {
-    Navigator.of(context).pop();
+    Navigator.of(context as BuildContext).pop();
     _launchURL(Application.github['widgetsURL'] + filePath);
   }
   _code = code;

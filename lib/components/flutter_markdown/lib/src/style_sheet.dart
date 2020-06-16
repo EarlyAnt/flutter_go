@@ -245,7 +245,7 @@ class MarkdownStyleSheet {
   bool operator ==(dynamic other) {
     if (identical(this, other)) return true;
     if (other.runtimeType != MarkdownStyleSheet) return false;
-    final MarkdownStyleSheet typedOther = other;
+    final MarkdownStyleSheet typedOther = other as MarkdownStyleSheet;
     return typedOther.a == a &&
         typedOther.p == p &&
         typedOther.code == code &&

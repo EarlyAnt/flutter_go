@@ -48,7 +48,7 @@ class _IssuesMessagePageState extends State<IssuesMessagePage> {
     } else {
       String mk = (_delta == null)
           ? 'No description provided.'
-          : notusMarkdown.encode(_delta);
+          : 'No mark down'; //notusMarkdown.encode(_delta);
       DataUtils.feedback({'title': _title, "body": mk}, context).then((result) {
         _show('提交成功');
         Navigator.maybePop(context);
